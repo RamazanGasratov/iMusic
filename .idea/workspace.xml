@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="" />
+    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add navigation Bar">
+      <change afterPath="$PROJECT_DIR$/IMusic/SearchResponse.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMusic.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/IMusic.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMusic.xcodeproj/xcuserdata/macbook.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/IMusic.xcodeproj/xcuserdata/macbook.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMusic/SearchViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/IMusic/SearchViewController.swift" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +41,18 @@
       <option name="presentableId" value="Default" />
       <updated>1687275306690</updated>
       <workItem from="1687275311257" duration="44000" />
+      <workItem from="1687458465182" duration="46000" />
+      <workItem from="1687782354121" duration="58000" />
+      <workItem from="1687782438768" duration="36000" />
     </task>
+    <task id="LOCAL-00001" summary="- add navigation Bar">
+      <created>1687458505571</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687458505571</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -51,5 +68,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- add navigation Bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add navigation Bar" />
   </component>
 </project>
