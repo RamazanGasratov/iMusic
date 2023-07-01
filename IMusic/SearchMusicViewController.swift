@@ -13,9 +13,11 @@ struct TrackModel {
     var artistName: String
 }
 
-class SearchViewController: UITableViewController {
+final class SearchMusicViewController: UITableViewController {
     
-    private var timer = Timer()
+    var networlService = NetworkService()
+    
+    private var timer: Timer?
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -50,37 +52,17 @@ class SearchViewController: UITableViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchMusicViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
       //  print(searchText)
-        timer.invalidate()
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            let url = "https://itunes.apple.com/search"
-            let paramets = ["term": "\(searchText)",
-                            "country" : "RU",
-                            "limit" : "15"]
-            
-            AF.request(url, method: .get, parameters: paramets, encoding: URLEncoding.default, headers: nil).responseData { dataResponsce in
-                if let error = dataResponsce.error {
-                    print("Error received requestiong data: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let data = dataResponsce.data else { return }
-                
-                let decoder = JSONDecoder()
-                do {
-                    let object = try decoder.decode(SearchResponse.self, from: data)
-                    print("objects: ", object)
-                    self.tracks = object.results
-                    self.tableView.reloadData()
-                    
-                } catch let jsonError {
-                    print("Failed to decode JSON", jsonError)
-                }
-                
+            self.networlService.fetchTrack(searchText: searchText) { [weak self] searchResults in
+                self?.tracks = searchResults?.results ?? []
+                self?.tableView.reloadData()
             }
         })
     }
 }
+
