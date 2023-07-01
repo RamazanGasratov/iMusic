@@ -21,6 +21,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     @IBOutlet weak var table: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
+    private var searchViewModel = SearchViewModel.init(cells: [])
+    private var timer: Timer?
   
   // MARK: Setup
   
@@ -52,11 +54,15 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
     private func setupTableView() {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        let nib = UINib(nibName: "TrackCell", bundle: nil)
+        table.register(nib, forCellReuseIdentifier: TrackCellView.identifier)
     }
   
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
@@ -64,8 +70,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
           
       case .some:
           print("viewController.some")
-      case .displayTracks:
+      case .displayTracks(let searchViewModel):
           print("viewController.display")
+          self.searchViewModel = searchViewModel 
+          table.reloadData()
       }
   }
 }
@@ -75,13 +83,21 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        searchViewModel.cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "indexPath: \(indexPath)"
+        let cell = table.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCellView
+        
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        cell.trackImageView.backgroundColor = .red
+        cell.set(viewModel: cellViewModel)
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        84
     }
 }
 
@@ -89,6 +105,9 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-        interactor?.makeRequest(request: Search.Model.Request.RequestType.some)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            self.interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchTerm: searchText))
+        })
     }
 }
