@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add clen Swift" />
+    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add tableViewCell" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +39,7 @@
       <workItem from="1687782354121" duration="58000" />
       <workItem from="1687782438768" duration="90000" />
       <workItem from="1688209099108" duration="41000" />
+      <workItem from="1688226143895" duration="57000" />
     </task>
     <task id="LOCAL-00001" summary="- add navigation Bar">
       <created>1687458505571</created>
@@ -61,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688209119573</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- add tableViewCell">
+      <created>1688226193039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688226193039</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,6 +91,7 @@
     <MESSAGE value="- add navigation Bar" />
     <MESSAGE value="- add iTUNES API" />
     <MESSAGE value="- add clen Swift" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add clen Swift" />
+    <MESSAGE value="- add tableViewCell" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add tableViewCell" />
   </component>
 </project>
