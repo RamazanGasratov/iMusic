@@ -17,7 +17,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   var interactor: SearchBusinessLogic?
   var router: (NSObjectProtocol & SearchRoutingLogic)?
     
-    
     @IBOutlet weak var table: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -25,6 +24,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private var timer: Timer?
     
     private lazy var footerView = FooterView()
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
   
   // MARK: Setup
   
@@ -40,17 +40,14 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     router.viewController     = viewController
   }
   
-  // MARK: Routing
-  
-
-  
-  // MARK: View lifecycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
       setup()
       setupSearchBar()
       setupTableView()
+      
+      //defult
+      searchBar(searchController.searchBar, textDidChange: "Лезгины")
   }
     
     private func setupSearchBar() {
@@ -110,10 +107,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
-       
-        let window = UIApplication.shared.windows.last { $0.isKeyWindow }
-        let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: nil)?.first as! TrackDetailView
-        window?.addSubview(trackDetailsView)
+        
+        self.tabBarDelegate?.maximizedTrackDetailController(viewModel: cellViewModel)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -135,5 +130,38 @@ extension SearchViewController: UISearchBarDelegate {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             self.interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchTerm: searchText))
         })
+    }
+}
+
+extension SearchViewController: TrackMovingDeleate {
+    private func getTrack(isForwardTrack: Bool) -> SearchViewModel.Cell? {
+        guard let indexPath = table.indexPathForSelectedRow else { return nil }
+        table.deselectRow(at: indexPath, animated: true)
+        var nextIndextPath: IndexPath!
+        if isForwardTrack {
+            nextIndextPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            if nextIndextPath.row == searchViewModel.cells.count {
+                nextIndextPath.row = 0
+            }
+        } else {
+            nextIndextPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            if nextIndextPath.row == -1 {
+                nextIndextPath.row = searchViewModel.cells.count - 1
+            }
+        }
+        
+        table.selectRow(at: nextIndextPath, animated: true, scrollPosition: .none)
+        let cellViewModel = searchViewModel.cells[nextIndextPath.row]
+        return cellViewModel
+    }
+    
+    func moveBackForPreviousTrack() -> SearchViewModel.Cell? {
+        print("next")
+        return getTrack(isForwardTrack: false)
+    }
+    
+    func moveForwardForPreviousTrack() -> SearchViewModel.Cell? {
+        print("next2")
+        return getTrack(isForwardTrack: true)
     }
 }

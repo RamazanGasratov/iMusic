@@ -27,6 +27,8 @@
 		FA8315852A41FE3F0001256E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8315832A41FE3F0001256E /* Main.storyboard */; };
 		FA8315872A41FE400001256E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8315862A41FE400001256E /* Assets.xcassets */; };
 		FA83158A2A41FE400001256E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8315882A41FE400001256E /* LaunchScreen.storyboard */; };
+		FAA04BF72A56DCF0003B5FF3 /* CMTime + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA04BF62A56DCF0003B5FF3 /* CMTime + Ext.swift */; };
+		FAA04BF92A5723D6003B5FF3 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA04BF82A5723D6003B5FF3 /* Nib.swift */; };
 		FAE18AC12A44C0B200E6F57A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE18AC02A44C0B200E6F57A /* MainTabBarController.swift */; };
 		FAE18AC32A44C19100E6F57A /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE18AC22A44C19100E6F57A /* SearchMusicViewController.swift */; };
 		FAE3A35C2A499BAD009D6237 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3A35B2A499BAD009D6237 /* SearchResponse.swift */; };
@@ -58,6 +60,8 @@
 		FA8315862A41FE400001256E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8315892A41FE400001256E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA83158B2A41FE400001256E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA04BF62A56DCF0003B5FF3 /* CMTime + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Ext.swift"; sourceTree = "<group>"; };
+		FAA04BF82A5723D6003B5FF3 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		FAE18AC02A44C0B200E6F57A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FAE18AC22A44C19100E6F57A /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		FAE3A35B2A499BAD009D6237 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -177,17 +181,27 @@
 				FA83157D2A41FE3F0001256E /* AppDelegate.swift */,
 				FA83157F2A41FE3F0001256E /* SceneDelegate.swift */,
 				FA8315812A41FE3F0001256E /* ViewController.swift */,
+				FAE18AC02A44C0B200E6F57A /* MainTabBarController.swift */,
+				FAE18AC22A44C19100E6F57A /* SearchMusicViewController.swift */,
 				FA5F5E532A4DB4F90089EDC1 /* Services */,
 				FA5F5E442A4DB4890089EDC1 /* Search */,
-				FAE18AC22A44C19100E6F57A /* SearchMusicViewController.swift */,
-				FAE18AC02A44C0B200E6F57A /* MainTabBarController.swift */,
-				FA3523772A5038FB001D57CF /* UIViewController + Storyboard.swift */,
+				FAA04BF52A56DCD1003B5FF3 /* Helpers */,
 				FA8315832A41FE3F0001256E /* Main.storyboard */,
 				FA8315862A41FE400001256E /* Assets.xcassets */,
 				FA8315882A41FE400001256E /* LaunchScreen.storyboard */,
 				FA83158B2A41FE400001256E /* Info.plist */,
 			);
 			path = IMusic;
+			sourceTree = "<group>";
+		};
+		FAA04BF52A56DCD1003B5FF3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3523772A5038FB001D57CF /* UIViewController + Storyboard.swift */,
+				FAA04BF62A56DCF0003B5FF3 /* CMTime + Ext.swift */,
+				FAA04BF82A5723D6003B5FF3 /* Nib.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +328,9 @@
 				FAE3A35C2A499BAD009D6237 /* SearchResponse.swift in Sources */,
 				FA5F5E602A4DB5AE0089EDC1 /* SearchInteractor.swift in Sources */,
 				FA2CE5752A534D1000B3E6B9 /* FooterView.swift in Sources */,
+				FAA04BF72A56DCF0003B5FF3 /* CMTime + Ext.swift in Sources */,
 				FA35237D2A50702F001D57CF /* TrackCell.swift in Sources */,
+				FAA04BF92A5723D6003B5FF3 /* Nib.swift in Sources */,
 				FA83157E2A41FE3F0001256E /* AppDelegate.swift in Sources */,
 				FAE18AC12A44C0B200E6F57A /* MainTabBarController.swift in Sources */,
 				FA5F5E5C2A4DB5AE0089EDC1 /* SearchWorker.swift in Sources */,
