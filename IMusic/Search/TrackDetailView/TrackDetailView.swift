@@ -45,11 +45,11 @@ class TrackDetailView: UIView {
     //MARK: - awakeFromNib()
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         let scale: CGFloat = 0.8
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 5
-        
-        super.awakeFromNib()
+        setupGestures()
     }
     //MARK: - Setup
     
@@ -68,14 +68,88 @@ class TrackDetailView: UIView {
         miniTrackImageView.sd_setImage(with: url)
     }
     
+    private func setupGestures() {
+        
+        miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximized)))
+        miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
+    }
+
     private func playTrack(previewUrl: String?) {
         guard let url = URL(string: previewUrl ?? "") else { return }
         let playerItem = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: playerItem)
         player.play()
     }
-    //MARK: - Time setup
     
+    //MARK: - Maximizing and minimazing gesture
+    @objc private func handleTapMaximized() {
+        print(#function)
+        self.tabBarDelegate?.maximizedTrackDetailController(viewModel: nil)
+    }
+    
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+            
+        case .began:
+            print("Began")
+        case .changed:
+            handlePanChanged(gesture: gesture)
+        case .ended:
+           handlePanEnded(gesture: gesture)
+        @unknown default:
+            break
+        }
+      
+    }
+    
+    private func handlePanChanged(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        self.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        
+        let newAlpha = 1 + translation.y / 200
+        self.miniTrackView.alpha = newAlpha < 0 ? 0 : newAlpha
+        self.mixizedStackView.alpha = -translation.y / 200
+    }
+    
+    private func handlePanEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        let velocity = gesture.velocity(in: self.superview)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+            self.transform = .identity
+            if translation.y < -200 || velocity.y < -500 {
+                self.tabBarDelegate?.maximizedTrackDetailController(viewModel: nil)
+            } else {
+                self.miniTrackView.alpha = 1
+                self.mixizedStackView.alpha = 0
+            }
+        }
+    }
+    
+    @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+            
+        case .changed:
+            let translation = gesture.translation(in: self.superview)
+            mixizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        case .ended:
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 1) {
+                self.mixizedStackView.transform = .identity
+                if translation.y > 50 {
+                    self.tabBarDelegate?.minimizedTrackDetailController()
+                }
+            }
+        @unknown default:
+            break
+        }
+    }
+    
+    //MARK: - Time setup
     private func monitorStartTime() {
         let time = CMTimeMake(value: 1, timescale: 3)
         let times = [NSValue(time: time)]

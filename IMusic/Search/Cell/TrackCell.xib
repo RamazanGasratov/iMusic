@@ -42,15 +42,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr9-Pl-8k2">
+                        <rect key="frame" x="340" y="34" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="1" green="0.3930613697" blue="0.47791814799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                        <connections>
+                            <action selector="addTrackAction:" destination="zCQ-XD-Vwa" eventType="touchUpInside" id="I7z-d3-Qnp"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addTrackOutlet" destination="Zr9-Pl-8k2" id="pGH-9m-y0a"/>
                 <outlet property="artistNameLabel" destination="lRC-3U-biZ" id="1lP-0n-9Ug"/>
                 <outlet property="collectionNameLabel" destination="bIJ-6l-gWJ" id="lpP-Pd-ahN"/>
                 <outlet property="trackImageView" destination="i3t-U8-WVS" id="VQM-iB-6Xq"/>
                 <outlet property="trackNameLabel" destination="h0E-NO-0hS" id="kEX-OW-5kk"/>
             </connections>
-            <point key="canvasLocation" x="-132.06106870229007" y="-8.4507042253521139"/>
+            <point key="canvasLocation" x="-316.79389312977099" y="8.4507042253521139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

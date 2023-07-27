@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add playView" />
+    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add miniTrackView" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +41,7 @@
       <workItem from="1688209099108" duration="41000" />
       <workItem from="1688226143895" duration="57000" />
       <workItem from="1688471376786" duration="39000" />
+      <workItem from="1690189191563" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="- add navigation Bar">
       <created>1687458505571</created>
@@ -77,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688471402713</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- add miniTrackView">
+      <created>1690189238186</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690189238186</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +109,7 @@
     <MESSAGE value="- add clen Swift" />
     <MESSAGE value="- add tableViewCell" />
     <MESSAGE value="- add playView" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add playView" />
+    <MESSAGE value="- add miniTrackView" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add miniTrackView" />
   </component>
 </project>

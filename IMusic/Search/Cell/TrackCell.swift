@@ -23,6 +23,7 @@ class TrackCellView: UITableViewCell {
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var collectionNameLabel: UILabel!
+    @IBOutlet weak var addTrackOutlet: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +37,42 @@ class TrackCellView: UITableViewCell {
         trackImageView.image = nil
     }
     
-    func set(viewModel: TrackCellViewModel) {
+    var cell: SearchViewModel.Cell?
+    
+    func set(viewModel: SearchViewModel.Cell) {
+        
+        self.cell = viewModel
+        
+        let saveTracks = UserDefaults.standard.savedTracks()
+         let hasFavourite = saveTracks.firstIndex(where: {
+            $0.trackName == self.cell?.trackName && $0.artistName == self.cell?.artistName
+        }) != nil
+        if hasFavourite {
+            addTrackOutlet.isHidden = true
+        } else {
+            addTrackOutlet.isHidden = false
+        }
+        
         trackNameLabel.text = viewModel.trackName
         artistNameLabel.text = viewModel.artistName
         collectionNameLabel.text = viewModel.collectionName
         
         guard let url = URL(string: viewModel.iconUrlString ?? "") else {return}
         trackImageView.sd_setImage(with: url)
+    }
+    
+    
+    @IBAction func addTrackAction(_ sender: Any) {
+        let defults = UserDefaults.standard
+        guard let cell = cell else { return }
+        addTrackOutlet.isHidden = true
+        var listOfTracks = defults.savedTracks()
+        listOfTracks.append(cell)
+       
+        if let saveData = try? NSKeyedArchiver.archivedData(withRootObject: listOfTracks,
+                                                            requiringSecureCoding: false) {
+            print("Успешно")
+            defults.set(saveData, forKey: UserDefaults.favouriteTrackKey)
+        }
     }
 }
