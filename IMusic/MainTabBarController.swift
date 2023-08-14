@@ -29,7 +29,8 @@ class MainTabBarController: UITabBarController {
       
         searchVC.tabBarDelegate = self
         
-        let libraryVC = Library()
+        var libraryVC = Library()
+        libraryVC.tabBarDelegate = self
         let hostVC = UIHostingController(rootView: libraryVC)
         hostVC.tabBarItem.image = UIImage(named: "library")
         hostVC.tabBarItem.title = "Library"
