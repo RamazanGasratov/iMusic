@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="- add Library cell" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2RTXzGpDN5WHmmfAHzaVIfuH2Fn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8740aaa8-eed0-44cc-ae8f-dca396710807" name="Changes" comment="" />
+      <created>1687275306690</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687275306690</updated>
+      <workItem from="1687275311257" duration="44000" />
+      <workItem from="1687458465182" duration="46000" />
+      <workItem from="1687782354121" duration="58000" />
+      <workItem from="1687782438768" duration="90000" />
+      <workItem from="1688209099108" duration="41000" />
+      <workItem from="1688226143895" duration="57000" />
+      <workItem from="1688471376786" duration="39000" />
+      <workItem from="1690189191563" duration="59000" />
+      <workItem from="1690446206797" duration="31000" />
+    </task>
+    <task id="LOCAL-00001" summary="- add navigation Bar">
+      <created>1687458505571</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687458505571</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- add iTUNES API">
+      <created>1687782511653</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687782511653</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- add clen Swift">
+      <created>1688209119573</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688209119573</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- add tableViewCell">
+      <created>1688226193039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688226193039</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- add playView">
+      <created>1688471402713</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688471402713</updated>
+    </task>
+    <task id="LOCAL-00006" summary="- add miniTrackView">
+      <created>1690189238186</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690189238186</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- add Library cell">
+      <created>1690446228426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690446228426</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- add navigation Bar" />
+    <MESSAGE value="- add iTUNES API" />
+    <MESSAGE value="- add clen Swift" />
+    <MESSAGE value="- add tableViewCell" />
+    <MESSAGE value="- add playView" />
+    <MESSAGE value="- add miniTrackView" />
+    <MESSAGE value="- add Library cell" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add Library cell" />
+  </component>
+</project>
